@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="scid.css" />
+<script src="scid.js" type="text/javascript"></script>
+<script type="text/javascript">
+// <![CDATA[
+movesArray = new Array(
+"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR -1 1",
+"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R 0 2",
+"rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R 1 3",
+"rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R 2 4",
+"rn1qkbnr/ppp1pppp/8/3p4/6b1/5NP1/PPPPPP1P/RNBQKB1R 3 5",
+"rn1qkbnr/ppp1pppp/8/3p4/6b1/5NP1/PPPPPPBP/RNBQK2R 4 6",
+"rn1qkbnr/ppp2ppp/4p3/3p4/6b1/5NP1/PPPPPPBP/RNBQK2R 5 7",
+"rn1qkbnr/ppp2ppp/4p3/3p4/2P3b1/5NP1/PP1PPPBP/RNBQK2R 6 8",
+"rn1qkbnr/pp3ppp/2p1p3/3p4/2P3b1/5NP1/PP1PPPBP/RNBQK2R 7 9",
+"rn1qkbnr/pp3ppp/2p1p3/3p4/2P3b1/5NP1/PP1PPPBP/RNBQ1RK1 8 10",
+"r2qkbnr/pp1n1ppp/2p1p3/3p4/2P3b1/5NP1/PP1PPPBP/RNBQ1RK1 9 11",
+"r2qkbnr/pp1n1ppp/2p1p3/3P4/6b1/5NP1/PP1PPPBP/RNBQ1RK1 10 12",
+"r2qkbnr/pp1n1ppp/4p3/3p4/6b1/5NP1/PP1PPPBP/RNBQ1RK1 11 13",
+"r2qkbnr/pp1n1ppp/4p3/3p4/6b1/1Q3NP1/PP1PPPBP/RNB2RK1 12 14",
+"r3kbnr/pp1n1ppp/1q2p3/3p4/6b1/1Q3NP1/PP1PPPBP/RNB2RK1 13 48",
+"r2qkbnr/pp1n1ppp/4p3/3p4/6b1/1Q3NP1/PP1PPPBP/RNB2RK1 -1 16",
+"1r1qkbnr/pp1n1ppp/4p3/3p4/6b1/1Q3NP1/PP1PPPBP/RNB2RK1 15 17",
+"1r1qkbnr/pp1n1ppp/4p3/3p4/6b1/1QN2NP1/PP1PPPBP/R1B2RK1 16 18",
+"1r1qkb1r/pp1nnppp/4p3/3p4/6b1/1QN2NP1/PP1PPPBP/R1B2RK1 17 19",
+"1r1qkb1r/pp1nnppp/4p3/3p4/3P2b1/1QN2NP1/PP2PPBP/R1B2RK1 18 20",
+"1r1qkb1r/pp1nnppp/4p3/3p4/3P4/1QN2bP1/PP2PPBP/R1B2RK1 19 21",
+"1r1qkb1r/pp1nnppp/4p3/3p4/3P4/1QN2BP1/PP2PP1P/R1B2RK1 20 22",
+"1r1qkb1r/pp1n1ppp/2n1p3/3p4/3P4/1QN2BP1/PP2PP1P/R1B2RK1 21 23",
+"1r1qkb1r/pp1n1ppp/2n1p3/3p4/3P4/1QN2BP1/PP2PP1P/R1BR2K1 22 24",
+"1r2kb1r/pp1n1ppp/1qn1p3/3p4/3P4/1QN2BP1/PP2PP1P/R1BR2K1 23 25",
+"1r2kb1r/pp1n1ppp/1qn1p3/3p4/3P1B2/1QN2BP1/PP2PP1P/R2R2K1 24 26",
+"2r1kb1r/pp1n1ppp/1qn1p3/3p4/3P1B2/1QN2BP1/PP2PP1P/R2R2K1 25 27",
+"2r1kb1r/pp1n1ppp/1qn1p3/3p4/3PPB2/1QN2BP1/PP3P1P/R2R2K1 26 28",
+"2r1kb1r/pp1n1ppp/1qn1p3/8/3PpB2/1QN2BP1/PP3P1P/R2R2K1 27 29",
+"2r1kb1r/pp1n1ppp/1qn1p3/8/3PBB2/1QN3P1/PP3P1P/R2R2K1 28 30",
+"2r1kb1r/pp1n1ppp/1q2p3/n7/3PBB2/1QN3P1/PP3P1P/R2R2K1 29 31",
+"2r1kb1r/pp1n1ppp/1q2p3/n7/Q2PBB2/2N3P1/PP3P1P/R2R2K1 30 32",
+"4kb1r/pp1n1ppp/1q2p3/n7/Q1rPBB2/2N3P1/PP3P1P/R2R2K1 31 33",
+"4kb1r/pp1n1ppp/1q2p3/n7/2rPBB2/2N3P1/PPQ2P1P/R2R2K1 32 34",
+"4k2r/pp1n1ppp/1q1bp3/n7/2rPBB2/2N3P1/PPQ2P1P/R2R2K1 33 35",
+"4k2r/pp1n1ppp/1q1bp3/n7/2rPB3/2N1B1P1/PPQ2P1P/R2R2K1 34 36",
+"4k2r/pp3ppp/1q1bpn2/n7/2rPB3/2N1B1P1/PPQ2P1P/R2R2K1 35 37",
+"4k2r/pp3ppp/1q1bpn2/n2P4/2r1B3/2N1B1P1/PPQ2P1P/R2R2K1 36 38",
+"4k2r/pp3ppp/1q2pn2/n1bP4/2r1B3/2N1B1P1/PPQ2P1P/R2R2K1 37 39",
+"4k2r/pp3ppp/1q2pn2/n1BP4/2r1B3/2N3P1/PPQ2P1P/R2R2K1 38 40",
+"4k2r/pp3ppp/4pn2/n1qP4/2r1B3/2N3P1/PPQ2P1P/R2R2K1 39 41",
+"4k2r/pp3ppp/4pn2/n1qP4/2r5/2NB2P1/PPQ2P1P/R2R2K1 40 42",
+"4k2r/pp3ppp/4pn2/n1qP4/1r6/2NB2P1/PPQ2P1P/R2R2K1 41 43",
+"4k2r/pp3ppp/4pn2/n1qP4/1r6/P1NB2P1/1PQ2P1P/R2R2K1 42 44",
+"4k2r/pp3ppp/4pn2/n1qP4/8/PrNB2P1/1PQ2P1P/R2R2K1 43 45",
+"4k2r/pp3ppp/4Pn2/n1q5/8/PrNB2P1/1PQ2P1P/R2R2K1 44 46",
+"4k2r/pp4pp/4pn2/n1q5/8/PrNB2P1/1PQ2P1P/R2R2K1 45 47",
+"4k2r/pp4pp/4pnB1/n1q5/8/PrN3P1/1PQ2P1P/R2R2K1 46 -1",
+"r3kbnr/pp1n1ppp/1Q2p3/3p4/6b1/5NP1/PP1PPPBP/RNB2RK1 14 49",
+"r3kbnr/pp3ppp/1n2p3/3p4/6b1/5NP1/PP1PPPBP/RNB2RK1 48 50",
+"r3kbnr/pp3ppp/1n2p3/3p4/6b1/2N2NP1/PP1PPPBP/R1B2RK1 49 51",
+"r3kbnr/1p3ppp/pn2p3/3p4/6b1/2N2NP1/PP1PPPBP/R1B2RK1 50 52",
+"r3kbnr/1p3ppp/pn2p3/3p4/6b1/2NP1NP1/PP2PPBP/R1B2RK1 51 53",
+"r3kb1r/1p3ppp/pn2pn2/3p4/6b1/2NP1NP1/PP2PPBP/R1B2RK1 52 54",
+"r3kb1r/1p3ppp/pn2pn2/3pN3/6b1/2NP2P1/PP2PPBP/R1B2RK1 53 55",
+"r3kb1r/1p3ppp/pn2pn2/3pN2b/8/2NP2P1/PP2PPBP/R1B2RK1 54 56",
+"r3kb1r/1p3ppp/pn2pn2/3pN2b/8/2NPB1P1/PP2PPBP/R4RK1 55 57",
+"r3kb1r/1p1n1ppp/p3pn2/3pN2b/8/2NPB1P1/PP2PPBP/R4RK1 56 58",
+"r3kb1r/1p1N1ppp/p3pn2/3p3b/8/2NPB1P1/PP2PPBP/R4RK1 57 59",
+"r3kb1r/1p1n1ppp/p3p3/3p3b/8/2NPB1P1/PP2PPBP/R4RK1 58 60",
+"r3kb1r/1p1n1ppp/p3p3/3p3b/5P2/2NPB1P1/PP2P1BP/R4RK1 59 61",
+"r3k2r/1p1n1ppp/p3p3/3p3b/1b3P2/2NPB1P1/PP2P1BP/R4RK1 60 62",
+"r3k2r/1p1n1ppp/p3p3/3p3b/1b3P2/2NPB1P1/PP2PKBP/R4R2 61 63",
+"r4rk1/1p1n1ppp/p3p3/3p3b/1b3P2/2NPB1P1/PP2PKBP/R4R2 62 64",
+"r4rk1/1p1n1ppp/p3p3/3p3b/1b3P2/2NPB1P1/PP2PKBP/R1R5 63 65",
+"r1r3k1/1p1n1ppp/p3p3/3p3b/1b3P2/2NPB1P1/PP2PKBP/R1R5 64 66",
+"r1r3k1/1p1n1ppp/p3p3/3p3b/1b3P2/2NPB1PP/PP2PKB1/R1R5 65 67",
+"r1r3k1/1p1n1ppp/p3p1b1/3p4/1b3P2/2NPB1PP/PP2PKB1/R1R5 66 68",
+"r1r3k1/1p1n1ppp/p3p1b1/3p4/1b3PP1/2NPB2P/PP2PKB1/R1R5 67 69",
+"r1r3k1/1p1n1pp1/p3p1b1/3p3p/1b3PP1/2NPB2P/PP2PKB1/R1R5 68 70",
+"r1r3k1/1p1n1pp1/p3p1b1/3p3p/1b3PP1/2NPBB1P/PP2PK2/R1R5 69 71",
+"r1r3k1/1p1n1ppb/p3p3/3p3p/1b3PP1/2NPBB1P/PP2PK2/R1R5 70 72",
+"r1r3k1/1p1n1ppb/p3p3/3p3P/1b3P2/2NPBB1P/PP2PK2/R1R5 71 73",
+"r1r2k2/1p1n1ppb/p3p3/3p3P/1b3P2/2NPBB1P/PP2PK2/R1R5 72 74",
+"r1r2k2/1p1n1ppb/p3p3/3p3P/1b3P2/2NPBB1P/PP2PK2/R5R1 73 75",
+"r4k2/1prn1ppb/p3p3/3p3P/1b3P2/2NPBB1P/PP2PK2/R5R1 74 76",
+"r4k2/1prn1ppb/p3p3/3p3P/1b3P2/2NPBB1P/PP2PKR1/R7 75 77",
+"r4k2/1prnbppb/p3p3/3p3P/5P2/2NPBB1P/PP2PKR1/R7 76 78",
+"r4k2/1prnbppb/p3p3/3p3P/3B1P2/2NP1B1P/PP2PKR1/R7 77 79",
+"r4k2/1prn1ppb/p3pb2/3p3P/3B1P2/2NP1B1P/PP2PKR1/R7 78 80",
+"r4k2/1prn1ppb/p3pB2/3p3P/5P2/2NP1B1P/PP2PKR1/R7 79 81",
+"r4k2/1pr2ppb/p3pn2/3p3P/5P2/2NP1B1P/PP2PKR1/R7 80 82",
+"r4k2/1pr2ppb/p3pn2/3p3P/5P2/2NP1B1P/PP2PKR1/6R1 81 83",
+"r3nk2/1pr2ppb/p3p3/3p3P/5P2/2NP1B1P/PP2PKR1/6R1 82 84",
+"r3nk2/1pr2ppb/p3p3/3p3P/5PR1/2NP1B1P/PP2PK2/6R1 83 85",
+"r3nk2/1pr2ppb/p3p3/7P/3p1PR1/2NP1B1P/PP2PK2/6R1 84 86",
+"r3nk2/1pr2ppb/p3p3/7P/N2p1PR1/3P1B1P/PP2PK2/6R1 85 87",
+"3rnk2/1pr2ppb/p3p3/7P/N2p1PR1/3P1B1P/PP2PK2/6R1 86 88",
+"3rnk2/1pr2ppb/p3p3/6RP/N2p1P2/3P1B1P/PP2PK2/6R1 87 89",
+"3rnk2/1pr2pp1/p3p3/5bRP/N2p1P2/3P1B1P/PP2PK2/6R1 88 90",
+"3rnk2/1pr2pp1/p3p3/5bRP/NP1p1P2/3P1B1P/P3PK2/6R1 89 91",
+"3rnk2/1p3pp1/p3p3/5bRP/NP1p1P2/3P1B1P/P1r1PK2/6R1 90 92",
+"3rnk2/1p3pp1/p3p3/2N2bRP/1P1p1P2/3P1B1P/P1r1PK2/6R1 91 93",
+"3rnk2/5pp1/pp2p3/2N2bRP/1P1p1P2/3P1B1P/P1r1PK2/6R1 92 94",
+"3rnk2/5pp1/pp2p3/5bRP/1P1pNP2/3P1B1P/P1r1PK2/6R1 93 95",
+"3rnk2/5pp1/pp2p3/5bRP/1P1pNP2/3P1B1P/r3PK2/6R1 94 96",
+"3rnk2/5pp1/pp2p3/5bRP/1P1pNP2/3P1B1P/r3PK2/2R5 95 97",
+"3rnk2/5pp1/pp2p3/5bRP/1P1pNP2/3P1B1P/1r2PK2/2R5 96 98",
+"3rnk2/5pp1/pp2p3/5bRP/1P1pNP2/3P1B1P/1r2PK2/R7 97 99",
+"3r1k2/2n2pp1/pp2p3/5bRP/1P1pNP2/3P1B1P/1r2PK2/R7 98 100",
+"3r1k2/2n2pp1/pp2p3/5bRP/1P1pNP2/3P1B1P/1r2PK2/6R1 99 101",
+"3r1k2/5pp1/pp2p3/3n1bRP/1P1pNP2/3P1B1P/1r2PK2/6R1 100 102",
+"3r1k2/5pR1/pp2p3/3n1b1P/1P1pNP2/3P1B1P/1r2PK2/6R1 101 103",
+"3r1k2/5pR1/pp2p3/5b1P/1P1pNn2/3P1B1P/1r2PK2/6R1 102 104",
+"3r1kR1/5p2/pp2p3/5b1P/1P1pNn2/3P1B1P/1r2PK2/6R1 103 105",
+"3r2R1/4kp2/pp2p3/5b1P/1P1pNn2/3P1B1P/1r2PK2/6R1 104 106",
+"3R4/4kp2/pp2p3/5b1P/1P1pNn2/3P1B1P/1r2PK2/6R1 105 107",
+"3R4/4kp2/pp2p3/5b1P/1P1pN3/3P1B1n/1r2PK2/6R1 106 108",
+"3R4/4kp2/pp2p3/5b1P/1P1pN3/3P1BKn/1r2P3/6R1 107 109",
+"3R4/4kp2/pp2p3/5b1P/1P1pN3/3P1BK1/1r2P3/6n1 108 110",
+"1R6/4kp2/pp2p3/5b1P/1P1pN3/3P1BK1/1r2P3/6n1 109 111",
+"1R6/4kp2/pp2p3/5b1P/1P1pN3/3P1BK1/1r2n3/8 110 112",
+"1R6/4kp2/pp2p3/5b1P/1P1pN3/3P2K1/1r2B3/8 111 113",
+"1R6/4kp2/pp2p3/5b1P/1P1pN3/3P2K1/4r3/8 112 114",
+"8/1R2kp2/pp2p3/5b1P/1P1pN3/3P2K1/4r3/8 113 115",
+"5k2/1R3p2/pp2p3/5b1P/1P1pN3/3P2K1/4r3/8 114 116",
+"5k2/1R3p2/pp1Np3/5b1P/1P1p4/3P2K1/4r3/8 115 117",
+"5k2/1R3p2/pp1Np3/7P/1P1p4/3b2K1/4r3/8 116 118",
+"5k2/5R2/pp1Np3/7P/1P1p4/3b2K1/4r3/8 117 119",
+"6k1/5R2/pp1Np3/7P/1P1p4/3b2K1/4r3/8 118 120",
+"6k1/5R2/pp1Np2P/8/1P1p4/3b2K1/4r3/8 119 121",
+"6k1/5R2/pp1Np2P/4r3/1P1p4/3b2K1/8/8 120 122",
+"6k1/6R1/pp1Np2P/4r3/1P1p4/3b2K1/8/8 121 123",
+"5k2/6R1/pp1Np2P/4r3/1P1p4/3b2K1/8/8 122 -1");
+var current = 0;
+var prefix = "asdasdd";
+// ]]>
+</script>
+<title>Scid</title>
+<meta content="Scid" name="author" />
+</head>
+<body onload="doinit()" onkeydown="handlekey(event)">
+<div id="framecontent">
+<div class="innertube">
+<div id="diagram"><!-- diagram goes here --></div>
+<div id="nav" style="text-align: center"><!-- navigation goes here -->
+<form action="#">
+<p>
+<input type='button' value=' &darr;&uarr; ' onclick='rotate()' /> <input type='button' value=' |&lt; ' onclick='jump(0)' /> <input type='button' value=' &lt; ' onclick='moveForward(0)' /> <input type='button' value=' &gt; ' onclick='moveForward(1)' /> <input type='button' value=' &gt;| ' onclick='jump(1)' /> 
+</p><p>
+<select name="gameselect" id="gameselect" size="1" onchange="gotogame()">
+<option  selected="selected">1. Radjabov, Teimour - Aronian, Levon</option>
+</select>
+</p><p>
+<input type="button" value="&lt;--" onclick="gotoprevgame()" /> &nbsp; <input type="button" value="--&gt;" onclick="gotonextgame()" />
+</p><p>
+<a href="عمرو عبد الله">عمرو عبد الله</a>
+</p>
+</form>
+</div>
+</div>
+</div>
+<div id="maincontent">
+<div class="innertube">
+<div id="moves"><!-- moves go here -->
+<span class="hPlayers"> Radjabov, Teimour - Aronian, Levon</span>
+<span class="hEvent"><br /> 7. Tal Memorial</span>
+<span class="hEvent"><br />[2012.06.17]</span>
+<span class="hAnnot"><br />[A07]</span>
+<p>
+<a href="javascript:gotoMove(0)" id="mv0" class="V0"></a>
+<a href="javascript:gotoMove(1)" id="mv1" class="V0">1.Nf3</a>
+<a href="javascript:gotoMove(2)" id="mv2" class="V0">d5</a>
+<a href="javascript:gotoMove(3)" id="mv3" class="V0">2.g3</a>
+<a href="javascript:gotoMove(4)" id="mv4" class="V0">Bg4</a>
+<a href="javascript:gotoMove(5)" id="mv5" class="V0">3.Bg2</a>
+<a href="javascript:gotoMove(6)" id="mv6" class="V0">e6</a>
+<a href="javascript:gotoMove(7)" id="mv7" class="V0">4.c4</a>
+<a href="javascript:gotoMove(8)" id="mv8" class="V0">c6</a>
+<a href="javascript:gotoMove(9)" id="mv9" class="V0">5.O-O</a>
+<a href="javascript:gotoMove(10)" id="mv10" class="V0">Nd7</a>
+<a href="javascript:gotoMove(11)" id="mv11" class="V0">6.cxd5</a>
+<a href="javascript:gotoMove(12)" id="mv12" class="V0">cxd5</a>
+<a href="javascript:gotoMove(13)" id="mv13" class="V0">7.Qb3</a>
+<a href="javascript:gotoMove(14)" id="mv14" class="V0">Qb6</a>
+<div class="var"><span class="VC">[</span>
+<a href="javascript:gotoMove(15)" id="mv15" class="V1"></a>
+<a href="javascript:gotoMove(16)" id="mv16" class="V1">7. ... Rb8</a>
+<a href="javascript:gotoMove(17)" id="mv17" class="V1">8.Nc3</a>
+<a href="javascript:gotoMove(18)" id="mv18" class="V1">Ne7</a>
+<a href="javascript:gotoMove(19)" id="mv19" class="V1">9.d4</a>
+<a href="javascript:gotoMove(20)" id="mv20" class="V1">Bxf3</a>
+<a href="javascript:gotoMove(21)" id="mv21" class="V1">10.Bxf3</a>
+<a href="javascript:gotoMove(22)" id="mv22" class="V1">Nc6</a>
+<a href="javascript:gotoMove(23)" id="mv23" class="V1">11.Rd1</a>
+<a href="javascript:gotoMove(24)" id="mv24" class="V1">Qb6</a>
+<a href="javascript:gotoMove(25)" id="mv25" class="V1">12.Bf4</a>
+<a href="javascript:gotoMove(26)" id="mv26" class="V1">Rc8</a>
+<a href="javascript:gotoMove(27)" id="mv27" class="V1">13.e4</a>
+<a href="javascript:gotoMove(28)" id="mv28" class="V1">dxe4</a>
+<a href="javascript:gotoMove(29)" id="mv29" class="V1">14.Bxe4</a>
+<a href="javascript:gotoMove(30)" id="mv30" class="V1">Na5</a>
+<a href="javascript:gotoMove(31)" id="mv31" class="V1">15.Qa4</a>
+<a href="javascript:gotoMove(32)" id="mv32" class="V1">Rc4</a>
+<a href="javascript:gotoMove(33)" id="mv33" class="V1">16.Qc2</a>
+<a href="javascript:gotoMove(34)" id="mv34" class="V1">Bd6</a>
+<a href="javascript:gotoMove(35)" id="mv35" class="V1">17.Be3</a>
+<a href="javascript:gotoMove(36)" id="mv36" class="V1">Nf6</a>
+<a href="javascript:gotoMove(37)" id="mv37" class="V1">18.d5</a>
+<a href="javascript:gotoMove(38)" id="mv38" class="V1">Bc5</a>
+<a href="javascript:gotoMove(39)" id="mv39" class="V1">19.Bxc5</a>
+<a href="javascript:gotoMove(40)" id="mv40" class="V1">Qxc5</a>
+<a href="javascript:gotoMove(41)" id="mv41" class="V1">20.Bd3</a>
+<a href="javascript:gotoMove(42)" id="mv42" class="V1">Rb4</a>
+<a href="javascript:gotoMove(43)" id="mv43" class="V1">21.a3</a>
+<a href="javascript:gotoMove(44)" id="mv44" class="V1">Rb3</a>
+<a href="javascript:gotoMove(45)" id="mv45" class="V1">22.dxe6</a>
+<a href="javascript:gotoMove(46)" id="mv46" class="V1">fxe6</a>
+<a href="javascript:gotoMove(47)" id="mv47" class="V1">23.Bg6+</a>
+<span class="VC">1-0 Loginov,V (2510)-Solozhenkin,E (2508)/St Petersburg RUS 2006/The Week in Chess 606</span>
+<span class="VC">]</span></div>
+<a href="javascript:gotoMove(48)" id="mv48" class="V0">8.Qxb6</a>
+<a href="javascript:gotoMove(49)" id="mv49" class="V0">Nxb6</a>
+<a href="javascript:gotoMove(50)" id="mv50" class="V0">9.Nc3</a>
+<a href="javascript:gotoMove(51)" id="mv51" class="V0">a6</a>
+<a href="javascript:gotoMove(52)" id="mv52" class="V0">10.d3</a>
+<a href="javascript:gotoMove(53)" id="mv53" class="V0">Nf6</a>
+<a href="javascript:gotoMove(54)" id="mv54" class="V0">11.Ne5</a>
+<a href="javascript:gotoMove(55)" id="mv55" class="V0">Bh5</a>
+<a href="javascript:gotoMove(56)" id="mv56" class="V0">12.Be3</a>
+<a href="javascript:gotoMove(57)" id="mv57" class="V0">Nbd7</a>
+<a href="javascript:gotoMove(58)" id="mv58" class="V0">13.Nxd7</a>
+<a href="javascript:gotoMove(59)" id="mv59" class="V0">Nxd7</a>
+<a href="javascript:gotoMove(60)" id="mv60" class="V0">14.f4</a>
+<a href="javascript:gotoMove(61)" id="mv61" class="V0">Bb4</a>
+<a href="javascript:gotoMove(62)" id="mv62" class="V0">15.Kf2</a>
+<a href="javascript:gotoMove(63)" id="mv63" class="V0">O-O</a>
+<a href="javascript:gotoMove(64)" id="mv64" class="V0">16.Rfc1</a>
+<a href="javascript:gotoMove(65)" id="mv65" class="V0">Rfc8</a>
+<a href="javascript:gotoMove(66)" id="mv66" class="V0">17.h3</a>
+<a href="javascript:gotoMove(67)" id="mv67" class="V0">Bg6</a>
+<a href="javascript:gotoMove(68)" id="mv68" class="V0">18.g4</a>
+<a href="javascript:gotoMove(69)" id="mv69" class="V0">h5</a>
+<span class="VC">A pretty dynamic solution to his problems.</span>
+<a href="javascript:gotoMove(70)" id="mv70" class="V0">19.Bf3</a>
+<a href="javascript:gotoMove(71)" id="mv71" class="V0">Bh7</a>
+<a href="javascript:gotoMove(72)" id="mv72" class="V0">20.gxh5</a>
+<a href="javascript:gotoMove(73)" id="mv73" class="V0">Kf8</a>
+<a href="javascript:gotoMove(74)" id="mv74" class="V0">21.Rg1</a>
+<a href="javascript:gotoMove(75)" id="mv75" class="V0">Rc7</a>
+<a href="javascript:gotoMove(76)" id="mv76" class="V0">22.Rg2</a>
+<a href="javascript:gotoMove(77)" id="mv77" class="V0">Be7</a>
+<a href="javascript:gotoMove(78)" id="mv78" class="V0">23.Bd4</a>
+<a href="javascript:gotoMove(79)" id="mv79" class="V0">Bf6</a>
+<a href="javascript:gotoMove(80)" id="mv80" class="V0">24.Bxf6</a>
+<a href="javascript:gotoMove(81)" id="mv81" class="V0">Nxf6</a>
+<a href="javascript:gotoMove(82)" id="mv82" class="V0">25.Rag1</a>
+<a href="javascript:gotoMove(83)" id="mv83" class="V0">Ne8</a>
+<a href="javascript:gotoMove(84)" id="mv84" class="V0">26.Rg4</a>
+<a href="javascript:gotoMove(85)" id="mv85" class="V0">d4</a>
+<a href="javascript:gotoMove(86)" id="mv86" class="V0">27.Na4</a>
+<a href="javascript:gotoMove(87)" id="mv87" class="V0">Rd8</a>
+<a href="javascript:gotoMove(88)" id="mv88" class="V0">28.Rg5</a>
+<a href="javascript:gotoMove(89)" id="mv89" class="V0">Bf5</a>
+<a href="javascript:gotoMove(90)" id="mv90" class="V0">29.b4</a>
+<a href="javascript:gotoMove(91)" id="mv91" class="V0">Rc2</a>
+<a href="javascript:gotoMove(92)" id="mv92" class="V0">30.Nc5</a>
+<a href="javascript:gotoMove(93)" id="mv93" class="V0">b6</a>
+<a href="javascript:gotoMove(94)" id="mv94" class="V0">31.Ne4</a>
+<a href="javascript:gotoMove(95)" id="mv95" class="V0">Rxa2</a>
+<a href="javascript:gotoMove(96)" id="mv96" class="V0">32.Rc1</a>
+<a href="javascript:gotoMove(97)" id="mv97" class="V0">Rb2</a>
+<a href="javascript:gotoMove(98)" id="mv98" class="V0">33.Ra1</a>
+<a href="javascript:gotoMove(99)" id="mv99" class="V0">Nc7</a>
+<a href="javascript:gotoMove(100)" id="mv100" class="V0">34.Rag1</a>
+<span class="VC">White got counterplay that led to a draw.</span>
+<a href="javascript:gotoMove(101)" id="mv101" class="V0">34. ... Nd5</a>
+<a href="javascript:gotoMove(102)" id="mv102" class="V0">35.Rxg7</a>
+<a href="javascript:gotoMove(103)" id="mv103" class="V0">Nxf4</a>
+<a href="javascript:gotoMove(104)" id="mv104" class="V0">36.Rg8+</a>
+<a href="javascript:gotoMove(105)" id="mv105" class="V0">Ke7</a>
+<a href="javascript:gotoMove(106)" id="mv106" class="V0">37.Rxd8</a>
+<a href="javascript:gotoMove(107)" id="mv107" class="V0">Nxh3+</a>
+<a href="javascript:gotoMove(108)" id="mv108" class="V0">38.Kg3</a>
+<a href="javascript:gotoMove(109)" id="mv109" class="V0">Nxg1</a>
+<a href="javascript:gotoMove(110)" id="mv110" class="V0">39.Rb8</a>
+<a href="javascript:gotoMove(111)" id="mv111" class="V0">Nxe2+</a>
+<a href="javascript:gotoMove(112)" id="mv112" class="V0">40.Bxe2</a>
+<a href="javascript:gotoMove(113)" id="mv113" class="V0">Rxe2</a>
+<a href="javascript:gotoMove(114)" id="mv114" class="V0">41.Rb7+</a>
+<a href="javascript:gotoMove(115)" id="mv115" class="V0">Kf8</a>
+<a href="javascript:gotoMove(116)" id="mv116" class="V0">42.Nd6</a>
+<a href="javascript:gotoMove(117)" id="mv117" class="V0">Bxd3</a>
+<a href="javascript:gotoMove(118)" id="mv118" class="V0">43.Rxf7+</a>
+<a href="javascript:gotoMove(119)" id="mv119" class="V0">Kg8</a>
+<a href="javascript:gotoMove(120)" id="mv120" class="V0">44.h6</a>
+<a href="javascript:gotoMove(121)" id="mv121" class="V0">Re5</a>
+<a href="javascript:gotoMove(122)" id="mv122" class="V0">45.Rg7+</a>
+<a href="javascript:gotoMove(123)" id="mv123" class="V0">Kf8</a>
+<br /><span class="VH">=-=</span>
+<p>
+<a href="http://scid.sourceforge.net/" style="font-size: 0.8em">عمرو عبد الله</a>
+</div>
+</div>
+</div>
+</body>
+</html>
